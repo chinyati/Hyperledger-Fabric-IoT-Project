@@ -21,6 +21,10 @@ services:
     extends:
       file:   docker-compose-base.yaml
       service: orderer.example.com
+    environment:
+    # metrics
+      - ORDERER_OPERATIONS_LISTENADDRESS=orderer.example.com:8443
+      - ORDERER_METRICS_PROVIDER=prometheus
     container_name: orderer.example.com
     networks:
       - byfn

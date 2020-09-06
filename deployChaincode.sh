@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Check channel info"
 docker exec peer1.org1.example.com peer channel getinfo -c ebenezer
 
@@ -33,7 +35,10 @@ docker exec cli peer chaincode invoke -o orderer.example.com:7050 --tls --cafile
 echo "Invoke (get)"
 docker exec cli peer chaincode query -C ebenezer -n access -c '{"Args":["get","name"]}'
 
-echo "Query"
-docker exec cli peer chaincode query -C ebenezer -n access -c '{"Args":["get","name"]}'
+echo "Check value with User1"
+docker exec -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp" cli peer chaincode query -C ebenezer -n access -c '{"Args":["get", "name"]}'
+
+echo "Try setting value with User1"
+docker exec -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp" cli peer chaincode query -C ebenezer -n access -c '{"Args":["set", "name", "TRACY"]}'
 
 

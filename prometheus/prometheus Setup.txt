@@ -1,0 +1,19 @@
+sudo docker run -d --name prometheus-server -p 9090:9090 \
+  --network IoT-network \
+  --restart always \
+  -v /home/kali/Hyperledger/prometheus/prometheus.yml:/prometheus.yml \
+  prom/prometheus \
+  --config.file=/prometheus.yml
+
+docker service create \
+    --replicas 1 --name my-prometheus \
+    --network IoT-network \
+    -p 9090:9090 \
+    chinyati/swarm-prometheus:latest
+    
+    sudo docker network connect IoT-network
+
+docker service create --replicas 1 --name my-prometheus \
+    --mount type=bind,source=/tmp/prometheus.yml,destination=/etc/prometheus/prometheus.yml \
+    --publish published=9090,target=9090,protocol=tcp \
+    prom/prometheus

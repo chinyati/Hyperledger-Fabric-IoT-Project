@@ -22,6 +22,9 @@ services:
       service: orderer-base
     environment:
       - ORDERER_GENERAL_LISTENPORT=8050
+      # metrics
+      - CORE_METRICS_PROVIDER=prometheus
+      - CORE_OPERATIONS_LISTENADDRESS=peer1.org1.example.com:8443
     container_name: orderer2.example.com
     networks:
     - byfn

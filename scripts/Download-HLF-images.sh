@@ -17,9 +17,9 @@ docker tag chinyati/fabric-tools:arm64-2.1.0 hyperledger/fabric-tools:2.1
 docker tag chinyati/fabric-tools:arm64-2.1.0 hyperledger/fabric-tools:latest
 
 # orderer
-docker pull chinyati/fabric-orderer:arm64-2.1.0
-docker tag chinyati/fabric-orderer:arm64-2.1.0 hyperledger/fabric-orderer:2.1
-docker tag chinyati/fabric-orderer:arm64-2.1.0 hyperledger/fabric-orderer:latest
+docker pull chinyati/fabric-orderer:2.1
+docker tag chinyati/fabric-orderer:2.1 hyperledger/fabric-orderer:2.1
+docker tag chinyati/fabric-orderer:2.1 hyperledger/fabric-orderer:latest
 
 # peer
 docker pull chinyati/fabric-peer:arm64-2.1.0

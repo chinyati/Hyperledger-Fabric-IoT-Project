@@ -1,5 +1,9 @@
+#!/bin/bash
+
 docker exec cli peer channel create -o orderer.example.com:7050 -c ebenezer -f ./channel-artifacts/channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-sleep 5
+#sleep 5
+
+#docker cp ebenezer.block cli:/opt/gopath/src/github.com/hyperledger/fabric/peer/
 
 docker exec cli peer channel join -b ebenezer.block
 
