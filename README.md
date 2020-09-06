@@ -2,4 +2,4 @@
 
 These are source files for my Postgrad project.
 
-Other repositories are also available on this account for creation of Raspberry Pi ARM64 images.
+FOr the Raspberry Pi 4 host the instructions to setup the Pi ARM64 images are available here https://github.com/chinyati/Hyperledger-Fabric-ARM64-images.
